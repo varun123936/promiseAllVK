@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Data Attribute Example</title>
+  <style>
+    button {
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Buttons with data attributes</h2>
+
+  <button data-color="red" data-message="You clicked the red button!">Red Button</button>
+  <button data-color="green" data-message="Success! The green button works!">Green Button</button>
+  <button data-color="blue" data-message="Cool! The blue button was pressed!">Blue Button</button>
+
+  <p id="output"></p>
+
+  <script>
+    const buttons = document.querySelectorAll("button");
+    const output = document.getElementById("output");
+
+    buttons.forEach(btn => {
+      // Set the background color based on data-color
+      btn.style.backgroundColor = btn.dataset.color;
+
+      // Add click event listener
+      btn.addEventListener("click", () => {
+        output.textContent = btn.dataset.message;
+        output.style.color = btn.dataset.color;
+      });
+    });
+  </script>
+
+</body>
+</html>
